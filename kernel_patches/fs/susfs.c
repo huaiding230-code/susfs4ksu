@@ -1425,3 +1425,6 @@ void __init susfs_init(void) {
 
 /* No module exit is needed becuase it should never be a loadable kernel module */
 //void __init susfs_exit(void)
+
+void susfs_set_current_proc_no_su(void) {}
+EXPORT_SYMBOL_GPL(susfs_set_current_proc_no_su);
