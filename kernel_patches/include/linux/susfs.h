@@ -171,6 +171,8 @@ struct st_susfs_uname {
 	char        version[__NEW_UTS_LEN+1];
 	char        machine[__NEW_UTS_LEN+1];
 };
+struct filename;
+struct stat;
 
 int susfs_add_sus_path(struct st_susfs_sus_path* __user user_info);
 int susfs_add_sus_mount(struct st_susfs_sus_mount* __user user_info);
