@@ -1,3 +1,7 @@
+#ifndef CONFIG_KSU_SUSFS
+#define CONFIG_KSU_SUSFS 1
+#endif
+
 #include <linux/version.h>
 #include <linux/cred.h>
 #include <linux/fs.h>
