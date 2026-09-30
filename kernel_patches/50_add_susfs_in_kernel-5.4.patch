@@ -739,10 +739,15 @@ index 5782cd55dfdb..9645f07f5c88 100644
  	return ret;
  }
  
-@@ -4037,3 +4278,37 @@ const struct proc_ns_operations mntns_operations = {
- 	.install	= mntns_install,
- 	.owner		= mntns_owner,
- };
+@@ -4161,3 +4278,37 @@ const struct proc_ns_operations mntns_operations = {
+	.name		= "mnt",
+	.type		= CLONE_NEWNS,
+	.get		= mntns_get,
+	.put		= mntns_put,
+	.install	= mntns_install,
+	.owner		= mntns_owner,
+};
+
 +
 +#ifdef CONFIG_KSU_SUSFS_TRY_UMOUNT
 +extern void susfs_try_umount_all(uid_t uid);
