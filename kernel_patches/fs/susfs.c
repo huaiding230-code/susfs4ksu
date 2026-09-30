@@ -4,10 +4,6 @@
 #define CONFIG_KSU_SUSFS_AUTO_ADD_SUS_KSU_DEFAULT_MOUNT 1
 #define CONFIG_KSU_SUSFS_ENABLE_LOG 1
 
-#ifndef CONFIG_KSU_SUSFS
-#define CONFIG_KSU_SUSFS 1
-#endif
-
 #include <linux/version.h>
 #include <linux/cred.h>
 #include <linux/fs.h>
