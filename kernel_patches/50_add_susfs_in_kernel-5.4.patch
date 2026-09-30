@@ -372,7 +372,7 @@ diff --git a/fs/namespace.c b/fs/namespace.c
 index 5782cd55dfdb..9645f07f5c88 100644
 --- a/fs/namespace.c
 +++ b/fs/namespace.c
-@@ -30,3 +30,66 @@
+@@ -30,5 +30,66 @@
  #include <uapi/linux/mount.h>
  #include <linux/fs_context.h>
  #include <linux/shmem_fs.h>
