@@ -739,7 +739,7 @@ index 5782cd55dfdb..9645f07f5c88 100644
  	return ret;
  }
  
-@@ -4161,3 +4278,37 @@ const struct proc_ns_operations mntns_operations = {
+@@ -4161,3 +4161,7 @@ const struct proc_ns_operations mntns_operations = {
 	.name		= "mnt",
 	.type		= CLONE_NEWNS,
 	.get		= mntns_get,
