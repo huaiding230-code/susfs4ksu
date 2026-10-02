@@ -220,4 +220,8 @@ extern void susfs_set_current_proc_no_su(void);
 extern void susfs_set_current_proc_umounted(void);
 extern void susfs_set_current_proc_umounted_for_zygote_next(void);
 extern bool susfs_is_sid_equal(const struct cred *cred, u32 sid);
+#ifdef CONFIG_KSU_SUSFS
+extern void susfs_start_sdcard_monitor_fn(void);
+extern void susfs_enable_log(bool __user *arg);
+#endif
 #endif
