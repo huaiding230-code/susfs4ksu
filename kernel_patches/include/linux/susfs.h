@@ -215,22 +215,9 @@ void susfs_change_error_no_by_pathname(char* pathname, int* errno_to_be_changed,
 
 void __init susfs_init(void);
 
-#endif
-/* --- SUSFS helper function declarations & stubs --- */
-#ifndef susfs_set_current_proc_no_su
-static inline void susfs_set_current_proc_no_su(void) {}
-#endif
-
-#ifndef susfs_set_current_proc_umounted
-static inline void susfs_set_current_proc_umounted(void) {}
-#endif
-
-#ifndef susfs_set_current_proc_umounted_for_zygote_next
-static inline void susfs_set_current_proc_umounted_for_zygote_next(void) {}
-#endif
-
-#ifndef susfs_is_sid_equal
-static inline bool susfs_is_sid_equal(const struct cred *cred, u32 sid) {
-    return false;
-}
+/* 在 include/linux/susfs.h 中补全 SUSFS 接口声明 */
+extern void susfs_set_current_proc_no_su(void);
+extern void susfs_set_current_proc_umounted(void);
+extern void susfs_set_current_proc_umounted_for_zygote_next(void);
+extern bool susfs_is_sid_equal(const struct cred *cred, u32 sid);
 #endif
