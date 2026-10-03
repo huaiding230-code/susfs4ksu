@@ -25,6 +25,8 @@
 #include "internal.h"
 #include "mount.h"
 
+static DEFINE_HASHTABLE(OPEN_REDIRECT_HLIST, 10);
+
 struct path;
 extern int path_umount(struct path *path, int flags);
 
