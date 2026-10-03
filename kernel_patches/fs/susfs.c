@@ -1416,6 +1416,51 @@ static int susfs_get_cur_fd_counts() {
 	return fd_count;
 }
 */
+struct filename* susfs_get_redirected_path(unsigned long ino) {
+	struct st_susfs_open_redirect_hlist *entry;
+
+	hash_for_each_possible(OPEN_REDIRECT_HLIST, entry, node, ino) {
+		if (entry->target_ino == ino) {
+			SUSFS_LOGI("Redirect for ino: %lu\n", ino);
+			return getname_kernel(entry->redirected_pathname);
+		}
+	}
+	return ERR_PTR(-ENOENT);
+}
+
+void susfs_sus_ino_for_generic_fillattr(unsigned long ino, struct kstat *stat) {
+	struct st_susfs_sus_kstat_hlist *entry;
+
+	hash_for_each_possible(SUS_KSTAT_HLIST, entry, node, ino) {
+		if (entry->target_ino == ino) {
+			stat->dev = entry->info.spoofed_dev;
+			stat->ino = entry->info.spoofed_ino;
+			stat->nlink = entry->info.spoofed_nlink;
+			stat->size = entry->info.spoofed_size;
+			stat->atime.tv_sec = entry->info.spoofed_atime_tv_sec;
+			stat->atime.tv_nsec = entry->info.spoofed_atime_tv_nsec;
+			stat->mtime.tv_sec = entry->info.spoofed_mtime_tv_sec;
+			stat->mtime.tv_nsec = entry->info.spoofed_mtime_tv_nsec;
+			stat->ctime.tv_sec = entry->info.spoofed_ctime_tv_sec;
+			stat->ctime.tv_nsec = entry->info.spoofed_ctime_tv_nsec;
+			stat->blocks = entry->info.spoofed_blocks;
+			stat->blksize = entry->info.spoofed_blksize;
+			return;
+		}
+	}
+}
+
+void susfs_sus_ino_for_show_map_vma(unsigned long ino, dev_t *out_dev, unsigned long *out_ino) {
+	struct st_susfs_sus_kstat_hlist *entry;
+
+	hash_for_each_possible(SUS_KSTAT_HLIST, entry, node, ino) {
+		if (entry->target_ino == ino) {
+			*out_dev = entry->info.spoofed_dev;
+			*out_ino = entry->info.spoofed_ino;
+			return;
+		}
+	}
+}
 
 static void susfs_my_uname_init(void) {
 	memset(&my_uname, 0, sizeof(struct st_susfs_uname));
