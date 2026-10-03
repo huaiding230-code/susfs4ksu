@@ -21,9 +21,10 @@
 #include <linux/uaccess.h>
 #include <linux/fdtable.h>
 #include <linux/mnt_namespace.h>
+#include <linux/susfs.h>
+
 #include "internal.h"
 #include "mount.h"
-#include <linux/susfs.h>
 
 struct path;
 extern int path_umount(struct path *path, int flags);
