@@ -6,7 +6,6 @@
 
 #include <linux/version.h>
 #include <linux/hashtable.h>
-#include <linux/kstat.h>
 #include <linux/cred.h>
 #include <linux/fs.h>
 #include <linux/path.h>
