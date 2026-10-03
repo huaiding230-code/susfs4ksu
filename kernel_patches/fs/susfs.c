@@ -24,6 +24,9 @@
 #include "mount.h"
 #include <linux/susfs.h>
 
+struct path;
+extern int path_umount(struct path *path, int flags);
+
 LIST_HEAD(LH_SUS_PATH);
 LIST_HEAD(LH_SUS_KSTAT_SPOOFER);
 LIST_HEAD(LH_SUS_MOUNT);
