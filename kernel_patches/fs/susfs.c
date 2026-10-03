@@ -19,7 +19,6 @@
 #include <linux/spinlock.h>
 #include <linux/stat.h>
 #include <linux/uaccess.h>
-#include <linux/version.h>
 #include <linux/fdtable.h>
 #include <linux/mnt_namespace.h>
 #include "internal.h"
