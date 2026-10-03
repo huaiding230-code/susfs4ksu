@@ -26,6 +26,7 @@
 #include "mount.h"
 
 static DEFINE_HASHTABLE(OPEN_REDIRECT_HLIST, 10);
+static DEFINE_HASHTABLE(SUS_KSTAT_HLIST, 10);
 
 struct path;
 extern int path_umount(struct path *path, int flags);
