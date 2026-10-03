@@ -5,6 +5,8 @@
 #define CONFIG_KSU_SUSFS_ENABLE_LOG 1
 
 #include <linux/version.h>
+#include <linux/hashtable.h>
+#include <linux/kstat.h>
 #include <linux/cred.h>
 #include <linux/fs.h>
 #include <linux/path.h>
@@ -1418,7 +1420,6 @@ static int susfs_get_cur_fd_counts() {
 */
 struct filename* susfs_get_redirected_path(unsigned long ino) {
 	struct st_susfs_open_redirect_hlist *entry;
-
 	hash_for_each_possible(OPEN_REDIRECT_HLIST, entry, node, ino) {
 		if (entry->target_ino == ino) {
 			SUSFS_LOGI("Redirect for ino: %lu\n", ino);
