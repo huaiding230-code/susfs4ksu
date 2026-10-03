@@ -1,3 +1,9 @@
+#define CONFIG_KSU_SUSFS 1
+#define CONFIG_KSU_SUSFS_OPEN_REDIRECT 1
+#define CONFIG_KSU_SUSFS_AUTO_ADD_SUS_BIND_MOUNT 1
+#define CONFIG_KSU_SUSFS_AUTO_ADD_SUS_KSU_DEFAULT_MOUNT 1
+#define CONFIG_KSU_SUSFS_ENABLE_LOG 1
+
 #include <linux/version.h>
 #include <linux/cred.h>
 #include <linux/fs.h>
