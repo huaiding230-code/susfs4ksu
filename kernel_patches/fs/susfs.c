@@ -25,21 +25,6 @@
 #include "internal.h"
 #include "mount.h"
 
-struct st_susfs_sus_kstat {
-	dev_t spoofed_dev;
-	ino_t spoofed_ino;
-	nlink_t spoofed_nlink;
-	loff_t spoofed_size;
-	long spoofed_atime_tv_sec;
-	long spoofed_atime_tv_nsec;
-	long spoofed_mtime_tv_sec;
-	long spoofed_mtime_tv_nsec;
-	long spoofed_ctime_tv_sec;
-	long spoofed_ctime_tv_nsec;
-	blkcnt_t spoofed_blocks;
-	u32 spoofed_blksize;
-};
-
 struct st_susfs_open_redirect_hlist {
 	struct hlist_node node;
 	unsigned long target_ino;
